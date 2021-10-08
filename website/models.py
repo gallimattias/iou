@@ -39,3 +39,5 @@ class Agreement(models.Model):
         ('T', 'Maturity'),
     ]
     payment_frequency = models.CharField(max_length=1, choices=payment_frequency_choices, default='M', )
+    signed_issuer = models.BinaryField(help_text='1 : Issuer has signed with BankID')
+    signed_obligor = models.BinaryField(help_text='1 : Obligor has signed with BankID')
