@@ -13,13 +13,12 @@ class Client(models.Model):
     phone = PhoneNumberField(unique=True)
     ssnseo = models.CharField(max_length=12, help_text="Social security number, or organisation-number of client.")
 
-
 class Agreement(models.Model):
     """Agreement information"""
 
     notional = models.FloatField(help_text='Outstanding notional of agreement')
-    amortisation = models.BinaryField(help_text='1 translates into linear amortisation')
-    perpetual = models.BinaryField(help_text='1 translates into a perpetual agreement (no end-date)')
+    amortisation = models.BooleanField(help_text='1 translates into linear amortisation')
+    perpetual = models.BooleanField(help_text='1 translates into a perpetual agreement (no end-date)')
     maturity = models.DateField(help_text='Last day of agreement')
 
     # IR-METHOD CATEGORICAL
@@ -39,5 +38,5 @@ class Agreement(models.Model):
         ('T', 'Maturity'),
     ]
     payment_frequency = models.CharField(max_length=1, choices=payment_frequency_choices, default='M', )
-    signed_issuer = models.BinaryField(help_text='1 : Issuer has signed with BankID')
-    signed_obligor = models.BinaryField(help_text='1 : Obligor has signed with BankID')
+    signed_issuer = models.BooleanField(help_text='1 : Issuer has signed with BankID',default=False)
+    signed_obligor = models.BooleanField(help_text='1 : Obligor has signed with BankID',default=False)

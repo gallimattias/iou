@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="{% static 'website/assets/css/multiform.css' %}" media="screen">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+              media="screen">
+        <script class="u-script" type="text/javascript" src="{% static 'website/assets/js/multiform.js' %}"
+                defer=""></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+    <!--PEN CONTENT     -->
+    <div class="content">
+        <!--content inner-->
+        <div class="content__inner">
+            <div class="container">
+                <!--content title-->
+                <!--content title-->
+                <h2 class="content__title">Registrering</h2>
+            </div>
+            <div class="container overflow-hidden">
+                <!--multisteps-form-->
+                <div class="multisteps-form">
+                    <!--progress bar-->
+                    <div class="row">
+                        <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+                            <div class="multisteps-form__progress">
+                                <button class="multisteps-form__progress-btn js-active" type="button"
+                                        title="Obligor_tab">Ansökande
+                                </button>
+                                <button class="multisteps-form__progress-btn" type="button" title="Issuer_tab">Motpart
+                                </button>
+                                <button class="multisteps-form__progress-btn" type="button" title="Agreement_tab">
+                                    Lånedetaljer
+                                </button>
+                                <button class="multisteps-form__progress-btn" type="button" title="Comments">Comments
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form panels-->
+                    <div class="row">
+                        <div class="col-12 col-lg-8 m-auto">
+
+                            <form class="multisteps-form__form">
+                                <!--single form panel-->
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active"
+                                     data-animation="scaleIn">
+                                    <h3 class="multisteps-form__title">Din roll</h3>
+                                    <div class="form-row">
+                                        <div class="col-12 m-auto">
+                                            <select class="pick-animation__select form-control">
+                                                <option value="Låntagare" selected="selected">Låntagare</option>
+                                                <option value="Långivare">Långivare</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="multisteps-form__content">
+                                        <br>
+                                        <h3 class="multisteps-form__title">Dina uppgifter</h3>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6">
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                       placeholder="Förnamn"/>
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                       placeholder="Efternamn"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col">
+                                                <input class="multisteps-form__input form-control" type="e-mail"
+                                                       placeholder="E-mail"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col">
+                                                <input class="multisteps-form__input form-control" type="phonenumber"
+                                                       placeholder="Telefonnummer"/>
+                                            </div>
+                                        </div>
+                                        <div class="button-row d-flex mt-4">
+                                            <button class="btn btn-primary ml-auto js-btn-next" type="button"
+                                                    title="Next">Next
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--single form panel-->
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
+                                     data-animation="scaleIn">
+
+                                    <h3 class="multisteps-form__title">Motpart roll</h3>
+                                    <div class="multisteps-form__content">
+                                     <div class="form-row">
+                                        <div class="col-12 m-auto">
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                       id="counterpart_role" placeholder="Långivare" readonly/>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <h3 class="multisteps-form__title">Motpart uppgifter</h3>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6">
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                       placeholder="Förnamn"/>
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                       placeholder="Efternamn"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col">
+                                                <input class="multisteps-form__input form-control" type="e-mail"
+                                                       placeholder="E-mail"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col">
+                                                <input class="multisteps-form__input form-control" type="phonenumber"
+                                                       placeholder="Telefonnummer"/>
+                                            </div>
+                                        </div>
+                                        <div class="button-row d-flex mt-4">
+                                            <button class="btn btn-primary js-btn-prev" type="button" title="Prev">
+                                                Prev
+                                            </button>
+                                            <button class="btn btn-primary ml-auto js-btn-next" type="button"
+                                                    title="Next">Next
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--single form panel-->
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
+                                     data-animation="scaleIn">
+                                    <h3 class="multisteps-form__title">Your Order Info</h3>
+                                    <div class="multisteps-form__content">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 mt-4">
+                                                <div class="card shadow-sm">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Item Title</h5>
+                                                        <p class="card-text">Small and nice item description</p><a
+                                                            class="btn btn-primary" href="#" title="Item Link">Item
+                                                        Link</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 mt-4">
+                                                <div class="card shadow-sm">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Item Title</h5>
+                                                        <p class="card-text">Small and nice item description</p><a
+                                                            class="btn btn-primary" href="#" title="Item Link">Item
+                                                        Link</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="button-row d-flex mt-4 col-12">
+                                                <button class="btn btn-primary js-btn-prev" type="button" title="Prev">
+                                                    Prev
+                                                </button>
+                                                <button class="btn btn-primary ml-auto js-btn-next" type="button"
+                                                        title="Next">Next
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--single form panel-->
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
+                                     data-animation="scaleIn">
+                                    <h3 class="multisteps-form__title">Additional Comments</h3>
+                                    <div class="multisteps-form__content">
+                                        <div class="form-row mt-4">
+                                            <textarea class="multisteps-form__textarea form-control"
+                                                      placeholder="Additional Comments and Requirements"></textarea>
+                                        </div>
+                                        <div class="button-row d-flex mt-4">
+                                            <button class="btn btn-primary js-btn-prev" type="button" title="Prev">
+                                                Prev
+                                            </button>
+                                            <button class="btn btn-success ml-auto" type="button" title="Send">Send
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
