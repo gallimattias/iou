@@ -3,7 +3,17 @@ from website.models import Client, Agreement
 
 
 # Create the form class.
-class ClientForm(ModelForm):
+class ClientForm1(ModelForm):
+    class Meta:
+        model = Client
+        fields = ['name_first', 'name_last', 'email', 'phone', ]
+        labels = {'name_first': 'Förnamn', \
+                  'name_last': 'Efternamn', \
+                  'email': 'E-mail', \
+                  'phone': 'Telefonnummer'}
+
+
+class ClientForm2(ModelForm):
     class Meta:
         model = Client
         fields = ['name_first', 'name_last', 'email', 'phone', ]

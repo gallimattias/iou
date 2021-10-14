@@ -1,15 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .forms import ClientForm, AgreementForm
-
+from .forms import ClientForm1,ClientForm2, AgreementForm
+from formtools.wizard.views import SessionWizardView
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html', {})
 
 
-# def multiform(request):
-#   return render(request, 'multiform.html', {})
+class ContactWizard(SessionWizardView):
+    template_name = 'multiform_wizard.html'
+    def done(self, form_list, **kwargs):
+        return render(self.request, 'done.html', {
+            'form_data': [form.cleaned_data for form in form_list],
+        })
 
 
 def multiform(request):
@@ -18,7 +22,7 @@ def multiform(request):
         # create a form instance and populate it with data from the request:
         form1 = ClientForm(request.POST)
         form2 = ClientForm(request.POST)
-        agreement= ClientForm(request.POST)
+        agreement = ClientForm(request.POST)
         # Creating a form to add an article.
 
 
@@ -26,11 +30,13 @@ def multiform(request):
         # client = Client.objects.get(pk=1)
         # form = ClientForm(instance=client)
         # check whether it's valid:
-        if form.is_valid():
+        if form1.is_valid() and form2.is_valid and agreement.is_valid():
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            form.save()
+            form1.save()
+            form2.save()
+            agreement.save()
             return HttpResponseRedirect('multiform')
 
 
