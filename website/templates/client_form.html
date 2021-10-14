@@ -15,8 +15,6 @@
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
               media="screen">
-        <script class="u-script" type="text/javascript" src="{% static 'website/assets/js/multiform.js' %}"
-                defer=""></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
@@ -53,7 +51,6 @@
                     <!--form panels-->
                     <div class="row">
                         <div class="col-12 col-lg-8 m-auto">
-
                             <form class="multisteps-form__form" method="post">
                                 {% csrf_token %}
                                 {{ wizard.management_form }}
@@ -168,108 +165,6 @@
                                 {% endif %}
                                 <input type="submit" value="{% trans "submit" %}"/>
                             </form>
-
-                            {% comment %}
-<!--single form panel-->
-<div class="multisteps-form__panel shadow p-4 rounded bg-white"
-     data-animation="scaleIn">
-    <h2>Motpart uppgifter</h2>
-
-    <div class="form-row">
-        <div class="mt-4 mb-2 col-12 mr-auto">
-            Motpart roll:
-        </div>
-        <div class="mb-4 col-6 mr-auto">
-            <input class="multisteps-form__input form-control" type="text"
-                   id="counterpart_role" placeholder="Långivare" readonly/>
-        </div>
-    </div>
-    {% for field in form2.visible_fields %}
-        <div class="form-group">
-            {{ field.label_tag }}
-
-            {% if form2.is_bound %}
-                {% if field.errors %}
-                    {% render_field field class="form-control is-invalid" %}
-                    {% for error in field.errors %}
-                        <div class="invalid-feedback">
-                            {{ error }}
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    {% render_field field class="form-control is-valid" %}
-                {% endif %}
-            {% else %}
-                {% render_field field class="form-control" %}
-            {% endif %}
-
-            {% if field.help_text %}
-                <small class="form-text text-muted">{{ field.help_text }}</small>
-            {% endif %}
-        </div>
-    {% endfor %}
-    <div class="button-row d-flex mt-4">
-        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">
-            Prev
-        </button>
-        <button class="btn btn-primary ml-auto js-btn-next" type="button"
-                title="Next">Next
-        </button>
-    </div>
-</div>
-<!--single form panel-->
-<div class="multisteps-form__panel shadow p-4 rounded bg-white"
-     data-animation="scaleIn">
-    {% for field in agreement.visible_fields %}
-        <div class="form-group">
-            {{ field.label_tag }}
-
-            {% if agreement.is_bound %}
-                {% if field.errors %}
-                    {% render_field field class="form-control is-invalid" %}
-                    {% for error in field.errors %}
-                        <div class="invalid-feedback">
-                            {{ error }}
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    {% render_field field class="form-control is-valid" %}
-                {% endif %}
-            {% else %}
-                {% render_field field class="form-control" %}
-            {% endif %}
-
-            {% if field.help_text %}
-                <small class="form-text text-muted">{{ field.help_text }}</small>
-            {% endif %}
-        </div>
-    {% endfor %}
-    <div class="row">
-        <div class="button-row d-flex mt-4 col-12">
-            <button class="btn btn-primary js-btn-prev" type="button" title="Prev">
-                Prev
-            </button>
-            <button class="btn btn-primary ml-auto js-btn-next" type="button"
-                    title="Next">Next
-            </button>
-        </div>
-    </div>
-</div>
-<!--single form panel-->
-<div class="multisteps-form__panel shadow p-4 rounded bg-white"
-     data-animation="scaleIn">
-    <div class="button-row d-flex mt-4">
-        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">
-            Prev
-        </button>
-        <button class="btn btn-success ml-auto" type="submit" formmethod="post"
-                title="Send">Send
-        </button>
-    </div>
-    </form>
-</div>{% endcomment %}
-
-
                         </div>
                     </div>
                 </div>
