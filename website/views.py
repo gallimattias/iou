@@ -3,22 +3,20 @@ from django.http import HttpResponseRedirect
 from .forms import ClientForm1, ClientForm2, AgreementForm
 from formtools.wizard.views import SessionWizardView
 
-
-# Create your views here.
-def index(request):
-    return render(request, 'index.html', {})
-
-
 WIZARD_FORMS = [("ClientForm1", ClientForm1),
                 ("ClientForm2", ClientForm2),
                 ("AgreementForm", AgreementForm),
                 ]
 
-TEMPLATES = {"ClientForm1": "clientform.html",
-             "ClientForm2": "clientform.html",
-             "AgreementForm": "agreementform.html",
+TEMPLATES = {"ClientForm1": "forms/clientform.html",
+             "ClientForm2": "forms/clientform.html",
+             "AgreementForm": "forms/agreementform.html",
              }
 
+
+# Create your views here.
+def index(request):
+    return render(request, 'index.html', {})
 
 class ContactWizard(SessionWizardView):
     def get_template_names(self):
